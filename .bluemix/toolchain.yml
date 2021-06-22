@@ -29,10 +29,10 @@ toolchain:
   name: 'helm-microservices-{{timestamp}}'
 services:
   catalog-api-repo:
-    service_id: hostedgit
+    service_id: githubpublic
     parameters:
-      repo_name: '{{form.hostedgit.parameters.catalog-api-repo_name}}'
-      repo_url: '{{form.hostedgit.parameters.catalog-api-repo_url}}'
+      repo_name: '{{form.githubpublic.parameters.catalog-api-repo_name}}'
+      repo_url: '{{form.githubpublic.parameters.catalog-api-repo_url}}'
       type: clone
       has_issues: false
       enable_traceability: true
@@ -55,13 +55,13 @@ services:
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
-          UMBRELLA_REPO_NAME: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+          UMBRELLA_REPO_NAME: '{{form.githubpublic.parameters.umbrella-repo_name}}'
         execute: true
   orders-api-repo:
-    service_id: hostedgit
+    service_id: githubpublic
     parameters:
-      repo_name: '{{form.hostedgit.parameters.orders-api-repo_name}}'
-      repo_url: '{{form.hostedgit.parameters.orders-api-repo_url}}'
+      repo_name: '{{form.githubpublic.parameters.orders-api-repo_name}}'
+      repo_url: '{{form.githubpublic.parameters.orders-api-repo_url}}'
       type: clone
       has_issues: false
       enable_traceability: true
@@ -84,13 +84,13 @@ services:
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
-          UMBRELLA_REPO_NAME: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+          UMBRELLA_REPO_NAME: '{{form.githubpublic.parameters.umbrella-repo_name}}'
         execute: true
   ui-repo:
-    service_id: hostedgit
+    service_id: githubpublic
     parameters:
-      repo_name: '{{form.hostedgit.parameters.ui-repo_name}}'
-      repo_url: '{{form.hostedgit.parameters.ui-repo_url}}'
+      repo_name: '{{form.githubpublic.parameters.ui-repo_name}}'
+      repo_url: '{{form.githubpublic.parameters.ui-repo_url}}'
       type: clone
       has_issues: false
       enable_traceability: true
@@ -115,13 +115,13 @@ services:
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
-          UMBRELLA_REPO_NAME: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+          UMBRELLA_REPO_NAME: '{{form.githubpublic.parameters.umbrella-repo_name}}'
         execute: true
   umbrella-repo:
-    service_id: hostedgit
+    service_id: githubpublic
     parameters:
-      repo_name: '{{form.hostedgit.parameters.umbrella-repo_name}}'
-      repo_url: '{{form.hostedgit.parameters.umbrella-repo_url}}'
+      repo_name: '{{form.githubpublic.parameters.umbrella-repo_name}}'
+      repo_url: '{{form.githubpublic.parameters.umbrella-repo_url}}'
       type: clone
       has_issues: true
       enable_traceability: true
@@ -202,7 +202,7 @@ form:
       umbrella-app-name: '{{services.umbrella-repo.parameters.repo_name}}'
     schema:
       $ref: deploy.json
-  hostedgit:
+  githubpublic:
     parameters:
       catalog-api-repo_name: 'catalog-api-{{timestamp}}'
       catalog-api-repo_url: 'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
